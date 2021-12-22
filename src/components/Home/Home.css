@@ -5,9 +5,12 @@
 }
 
 .link {
+    display: flex;
+    justify-content: center;
     margin-top: 5%;
-    text-decoration: underline;
-    font-size: 20px;
+    font-size: 30px;
+    letter-spacing: 4px;
+    border-bottom: 2px solid black;    
 }
 
 .cards {

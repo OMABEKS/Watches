@@ -4,7 +4,6 @@ import { useContext } from "react/cjs/react.development";
 import { cartContext } from "../../contexts/CartContext";
 
 const CartItem = ({ item }) => {
-  // console.log(item);
 
 
   const {deleteFromCart , changeProductCount} = useContext(cartContext);

@@ -12,31 +12,35 @@ function Footer() {
 }>BACK TO TOPE</a>
               
               </div>
+      
         
         <div class='footer-links'>
           <div className='footer-link-wrapper'>
-            <div class='footer-link-items'>
-             
-              <h2>CUSTOMER CARE</h2>
-              <Link to='/'>Contact Us</Link>
-              <Link to='/'>Delivery</Link>
-              <Link to='/'>Click & Collect</Link>
-              <Link to='/'>Returns & Refunds </Link>
-              <Link to='/'> Payment Options  </Link>
-              <Link to='/'> Watches Of Switzerland</Link>
-             
+            <div className='footer-link-items'>
+                 <h2 style={{color:'#999'}}>ЭКСКЛЮЗИВНЫЕ УСЛУГИ</h2>
+                 <Link to='/'>Связаться с нами</Link>
+                 <Link to='/'>FAQs</Link>
             </div>
             <div class='footer-link-items'>
-              <h2>WHO WE ARE</h2>
-              <Link to='/'>Our History</Link>
-              <Link to='/'>Our Showrooms</Link>
-              <Link to='/'>Calibre</Link>
-              <Link to='/'> Calibre Podcast</Link>
-              <Link to= '/'> Glossary  </Link>
-              <Link to= '/'> Careers  </Link>
-              <Link to= '/'>Corporate Policies  </Link>
+             
+              <h2>НУЖНА ПОМОЩЬ?</h2>
+              <Link to='/'>Связаться с нами</Link>
+              <Link to='/'>FAQs</Link>
+              <Link to='/'>Уход за изделиями</Link>
+              <Link to='/'>Карта сайта </Link>
               
+             
             </div>
+            <div class='footer-link-items'>
+              <h2>НАША КОМПАНИЯ</h2>
+              <Link to='/'>Подробнее о Gucci</Link>
+              <Link to='/'>Gucci Equilibrium</Link>
+              <Link to='/'>Code of Ethics</Link>
+              <Link to='/'> Careers</Link>
+              <Link to= '/'> Правовая информация  </Link>
+             
+            </div>
+           
           </div>
           <div className='footer-link-wrapper'>
             <div class='footer-link-items'>
@@ -47,12 +51,12 @@ function Footer() {
               <Link to='/'>Newsletter Sign Up</Link>
             </div>
             <div class='footer-link-items'>
-              <h2>FOLLOW US ON</h2>
+              <h2>СЛЕДИТЕ ЗА НАМИ</h2>
               <div style={{width:'100%',  display: 'flex' , justifyContent:'space-around' , alignItems:'center' , fontSize:"150%" }} >
-              <a href="https://www.instagram.com/watchesofswitzerland_usa/"><InstagramOutlined /></a>
-              <a href="https://www.youtube.com/channel/UC4HEpZwsum3GQVw9AwF-FvA"><YoutubeOutlined /></a>
-              <a href="https://www.facebook.com/WatchesofSwitzerland"> <FacebookOutlined /> </a>
-              <a href="https://twitter.com/WoS_OfficialUK"> <TwitterOutlined /> </a>  
+              <a href="https://www.instagram.com/gucci/"><InstagramOutlined /></a>
+              <a href="https://www.youtube.com/c/gucci"><YoutubeOutlined /></a>
+              <a href="https://www.facebook.com/gucci"> <FacebookOutlined /> </a>
+              <a href="https://twitter.com/gucci"> <TwitterOutlined /> </a>  
               </div>
               
             </div>
@@ -69,7 +73,7 @@ function Footer() {
         </Link>
              
             </div>
-            <small class='website-rights'> Copyright © 2021 Watches of Switzerland. All rights reserved.</small>
+            <small class='website-rights'> © ПРОСТИТЕ РАЗРАБОТЧИКИ ГУЧЧИ ЧТО НАРУШИЛ ВАШИ АВТОРСКИЕ ПРАВА</small>
 
           </div>
         </section>

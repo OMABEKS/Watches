@@ -1,35 +1,47 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "antd";
 import {
   ShoppingCartOutlined,
   EllipsisOutlined,
-  StarOutlined,
+  HeartOutlined,
 } from "@ant-design/icons";
 
 import { cartContext } from "../../contexts/CartContext"
-import { productsContext } from "../../contexts/productsContext";
+import { useState } from "react";
+import { favContext } from "../../contexts/favContext";
 
 
-const ProductCard = ({ item }) => {
-    const { addProductToCart  , checkItemInCart} = useContext(cartContext);
-    const [checkInCart , setCheckInCart] = useState(checkItemInCart(item.id))
-    useEffect(() => {
-      setCheckInCart(checkItemInCart(item.id))
-    })
+const ProductCart = ({ item }) => {
+  const { addProductToCart, checkItemInCart } = useContext(cartContext);
+  const [checkInCart, setCheckInCart] = useState(checkItemInCart(item.id));
+  useEffect(() => {
+    setCheckInCart(checkItemInCart(item.id))
+  })
 
+  const {addProductToFav, checkItemInFav } = useContext(favContext);
+  const [checkInFav, setCheckInFav] = useState(checkItemInFav(item.id));
+  useEffect(() => {
+    setCheckInFav(checkItemInFav(item.id))
+  })
   return (
-    <Card
+    <Card className="ant-card-body_shop "
       hoverable
       key={item.id}
-      style={{ width: "280px", margin: "10px" }}
-      cover={<img alt="example" src={item.image1} />}
+      style={{ width: "280px", margin: "10px", background: 'transparent' }}
+      cover={<img alt="example" src={item.image1} style={{width: '250px', marginLeft: '5.5%'}} />}
       actions={[
-        <StarOutlined style={{ color: "black",fontSize: "25px" }} />,
+        <HeartOutlined twoToneColor="red" style={{ color: checkInFav ? "red" : "black", fontSize: "25px" }}
+        onClick={() => {
+          addProductToFav(item);
+          setCheckInFav(checkItemInFav(item.id));
+        }} />,
         <ShoppingCartOutlined
-          style={{  color: checkInCart ? "red" : "black", fontSize: "25px" }}
-          onClick={() => { addProductToCart(item); setCheckInCart(checkItemInCart(item.id))}}
-           
+          style={{ color: checkInCart ? "red" : "black", fontSize: "25px" }}
+          onClick={() => {
+            addProductToCart(item);
+            setCheckInCart(checkItemInCart(item.id));
+          }}
         />,
         <Link to={`/products/${item.id}`}>
           <EllipsisOutlined
@@ -40,11 +52,11 @@ const ProductCard = ({ item }) => {
       ]}
     >
       <Card.Meta
-        title={item.brand}
+        title={<h3 style={{color: 'black'}}>{item.brand}</h3>}
         description={
           <>
-            <h3>{item.model}</h3>
-            <h2>{"$" + item.price}</h2>
+            <h3 style={{color: 'black'}}>{item.model}</h3>
+            <h2 style={{color: 'black'}}>{"$" + item.price}</h2>
           </>
         }
       />
@@ -52,5 +64,4 @@ const ProductCard = ({ item }) => {
   );
 };
 
-export default ProductCard;
-
+export default ProductCart;

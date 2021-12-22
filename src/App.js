@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-
 import AuthContextProvider from "./contexts/authContext";
 import ProductsContextProvider from "./contexts/productsContext";
 import BrandsContextProvider from "./contexts/brandsContext";
 import CartContextProvider from "./contexts/CartContext";
+import FavContextProvider from "./contexts/favContext";
 
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -18,6 +18,7 @@ const App = () => {
   return (
     <AuthContextProvider>
       <CartContextProvider>
+      <FavContextProvider>
       <BrandsContextProvider>
         <ProductsContextProvider>
           <BrowserRouter>
@@ -27,6 +28,7 @@ const App = () => {
           </BrowserRouter>
         </ProductsContextProvider>
       </BrandsContextProvider>
+      </FavContextProvider>
       </CartContextProvider>
     </AuthContextProvider>
   );
@@ -34,11 +36,4 @@ const App = () => {
 
 export default App;
 
-  // список того  что есть у нас на сайте:
-// CRUD 
-// фильтрация
-// пагинация
-// поиск
-// корзина
-// роутинг
-// админ
+

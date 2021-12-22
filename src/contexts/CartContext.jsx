@@ -1,9 +1,6 @@
 import React, { useReducer } from "react";
 import { calcSubPrice , calcTotalPrice } from "../helpers/calcPrice";
 import { CASE_GET_CART } from "../helpers/cases";
-
-
-
 export const cartContext = React.createContext();
 
 const INIT_STATE = {
@@ -127,14 +124,6 @@ const CartContextProvider = ({ children }) => {
      localStorage.setItem("cart" , JSON.stringify(cart));
      getCart();
    }
-
-
-
-
-
-
-
-
   return (
     <cartContext.Provider
       value={{

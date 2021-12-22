@@ -25,6 +25,7 @@ const AdminBrandsList = () => {
           <List.Item.Meta
             avatar={<Avatar src={item.logo} />}
             title={<a>{item.brand}</a>}
+            title2={item.description}
           />
         </List.Item>
       )}

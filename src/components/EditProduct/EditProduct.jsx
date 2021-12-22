@@ -116,18 +116,7 @@ const EditProduct = () => {
           <Input />
         </Form.Item>
 
-        <Form.Item
-          label="Video"
-          name="video"
-          rules={[
-            {
-              required: true,
-              message: "Please input URL of video!",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
+        
 
         <Form.Item
           wrapperCol={{

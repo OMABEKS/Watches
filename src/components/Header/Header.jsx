@@ -1,99 +1,68 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { Badge } from "antd";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined, StarOutlined } from "@ant-design/icons";
 
 import { useAuth } from "../../contexts/authContext";
+import { cartContext } from "../../contexts/CartContext"
+import { favContext } from "../../contexts/favContext";
 
 import "./Header.css";
-import { useContext } from "react/cjs/react.development";
-import { cartContext } from "../../contexts/CartContext";
 
-const Header = ( ) => {
+const Header = () => {
+
   const location = useLocation();
   const {
     handleLogout,
     user: { email },
   } = useAuth();
 
-
-
-  const {getCart , cartLength} = useContext(cartContext)
+  // КОРЗИНКА 
+  const { getCart, cartLength } = useContext(cartContext);
   useEffect(() => {
-    getCart()
+    getCart();
   }, []);
-
-
-
+ 
+  // ИЗБРАННОЕ 
+  const {getFav , favLength} = useContext(favContext)
+  useEffect(()=>{
+    getFav()
+  }, []);
 
   const NAV_ITEMS = [
     {
-      title: "BRANDS A-Z",
+      title: "BRANDS",
       link: "/brands",
       id: 1,
     },
     {
-      title: "WATCHES",
+      title: "ОДЕЖДА",
       link: "/products",
       id: 2,
     },
     {
-      title: "STORES",
-      link: "*",
-      id: 3,
-    },
-    {
-      title: "NEWS",
-      link: "*",
+      title: "ЧАСЫ И УКРАШЕНИЯ",
+      link: "/watches",
       id: 4,
     },
     {
-      title: "CONTACTS",
-      link: "*",
+      title: "ПОКАЗЫ",
+      link: "/show",
       id: 5,
     },
   ];
   return (
     <>
       <nav>
-        <div>
-          {email ? (
-            <Link to="/auth">
-              <button className="sign-btn" onClick={handleLogout}>
-                Logout
-              </button>
-            </Link>
-          ) : null}
-
-          {email ? null : (
-            <Link to="/auth">
-              <button className="sign-btn">Login</button>
-            </Link>
-          )}
-        </div>
-      </nav>
-      <div className="header">
-        <div></div>
-        <Link to="/">
+      <Link to="/">
           <img
             width="200px"
-            src="https://content.thewosgroup.com/wosus/logo/wos_since_1924_uk_blk_notag.svg"
+            src="https://www.pacificplace.com.hk/-/media/Images/PacificPlace2/Shops/Logo/gucci-logo.ashx?rev=1bc9d678b3bb4535a7c6c7ba622a4c43"
             alt=""
           />
         </Link>
-        <div>
-          <Link to ="/cart">
-          <Badge count={+cartLength}>
-            <ShoppingCartOutlined
-              style={{ fontSize: "30px", cursor: "pointer" }}
-            />
-          </Badge>
-          </Link>
-        </div>
-      </div>
-      <div className="navbar">
-        {NAV_ITEMS.map((item) => (
+      {NAV_ITEMS.map((item) => (
           <Link
             to={item.link}
             className={
@@ -106,7 +75,7 @@ const Header = ( ) => {
           </Link>
         ))}
 
-        {email === "makers@gmail.com" ? (
+        {email === "makers23@gmail.com" ? (
           <Link
             className={
               location.pathname === "/admin"
@@ -118,6 +87,51 @@ const Header = ( ) => {
             ADMIN
           </Link>
         ) : null}
+        
+        
+      </nav>
+     
+      <div className="navbar">
+      <div>
+          {email ? (
+            <Link to="/auth">
+              <button className="sign-btn" onClick={handleLogout}>
+                ВЫЙТИ
+              </button>
+            </Link>
+          ) : null}
+
+          {email ? null : (
+            <Link to="/auth">
+              <button className="sign-btn">ВОЙТИ</button>
+            
+            </Link>
+          )}
+        </div>
+       
+      </div>
+      
+      <div className="header">
+        <div></div>
+       
+        <div>
+        <Link to="/cart">
+            <Badge count={+cartLength}>
+              <ShoppingCartOutlined
+                style={{ fontSize: "30px", cursor: "pointer" }}
+              />
+            </Badge>
+          </Link>
+        </div>
+        <div>
+        <Link to="/fav">
+            <Badge count={+favLength}>
+              <StarOutlined
+                style={{ fontSize: "30px", cursor: "pointer", color: "black" }}
+              />
+            </Badge>
+          </Link>
+        </div>
       </div>
     </>
   );

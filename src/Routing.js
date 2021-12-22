@@ -11,6 +11,12 @@ import { useAuth } from "./contexts/authContext";
 import AdminPage from "./pages/AdminPage";
 import Error404 from "./pages/Error404";
 import Cart from "./components/Cart/Cart";
+import Fav from "./components/Favourites/Fav";
+import Checkout from "./components/CreditCart/Checkout";
+import CreditCart from "./components/CreditCart/CreditCart";
+import AddComment from "./components/Comments/AddComment";
+import Watches from "./components/Watches/Watches";
+import Show from "./components/Show/Show";
 
 const Routing = () => {
   let PUBLIC_ROUTES = [
@@ -43,7 +49,41 @@ const Routing = () => {
       link:"/cart",
       element: <Cart/>,
       id: 6
+    },
+    {
+      link:"/fav",
+      element:<Fav/>,
+      id:7
+
+    },
+    {
+      link:'/checkout',
+      element:<Checkout/>,
+      id:8
+    },
+    {
+      link:"/creditCart",
+      element:<CreditCart/>,
+      id:9
+
+    },
+    {
+      link:"/addComment",
+      element:<AddComment/>,
+      id:10
+
+    },
+    {
+      link:"/watches",
+      element:<Watches/>,
+      id:11
+    },
+    {
+      link:"/show",
+      element:<Show/>
+
     }
+
   ];
   const ADMIN_ROUTES = [
     {
@@ -67,7 +107,7 @@ const Routing = () => {
         <Route
           path={item.link}
           element={
-            user.email === "makers@gmail.com" ? (
+            user.email === "makers23@gmail.com" ? (
               item.element
             ) : (
               <Navigate replace to="*" />

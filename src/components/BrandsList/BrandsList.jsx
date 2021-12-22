@@ -24,7 +24,9 @@ const BrandsList = () => {
           hoverable
           style={{ width: "240px", height: "240px", margin: "10px" }}
           cover={<img alt="example" src={item.logo} />}
+          
         />
+
       ))}
     </div>
   );
